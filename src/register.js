@@ -9,11 +9,11 @@ const schema = YUP.object().shape({
   age: YUP.number()
           .integer(),
   firstName: YUP.string()
-                .min(5, "First Name should have more than 6 characters"),
+                .min(6, "First Name should have more than 6 characters"),
   lastName: YUP.string()
-               .min(5, "Last Name should have more than 6 Characters"),
+               .min(6, "Last Name should have more than 6 Characters"),
   password: YUP.string()
-               .min(5, "Password should have minimum 6 charcters"),
+               .min(6, "Password should have minimum 6 charcters"),
   confirm_password: YUP.string()
                        .oneOf([YUP.ref("password"), null],
                        "Passwords must match",
@@ -23,7 +23,7 @@ const schema = YUP.object().shape({
 function Register() {
   const [dummy, setDummy] = useState(true);
   return (
-    <div className="d-flex justify-content-center mt-5">
+    <div className="d-flex justify-content mt-5">
       {dummy ? (
         <Card>
           <Card.Header className="text-center fs-4 fw-bold">Register</Card.Header>
