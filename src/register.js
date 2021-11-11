@@ -1,27 +1,19 @@
 import React, { useState } from "react";
-
 import { Card } from "react-bootstrap";
-
 import { ErrorMessage, Field, Form, Formik } from "formik";
-
 import * as YUP from "yup";
 
 const schema = YUP.object().shape({
   email: YUP.string()
-            .email()
-            .required(" Enter Your  valid Email ID"),
+            .email(),
   age: YUP.number()
-          .required("Enter your Age")
           .integer(),
   firstName: YUP.string()
-                .min(5, "First Name should have more than 6 characters")
-                .required("Enter Your First Name"),
+                .min(5, "First Name should have more than 6 characters"),
   lastName: YUP.string()
-               .min(5, "Last Name should have more than 6 Characters")
-               .required("Enter Your Last Name"),
+               .min(5, "Last Name should have more than 6 Characters"),
   password: YUP.string()
-               .min(5, "Password should have minimum 6 charcters")
-               .required("Enter Your Password"),
+               .min(5, "Password should have minimum 6 charcters"),
   confirm_password: YUP.string()
                        .oneOf([YUP.ref("password"), null],
                        "Passwords must match",
@@ -118,12 +110,9 @@ function Register() {
           </Card.Body>
         </Card>
       ) : (
-        <div>
-          <h1>Register Successfully DONE</h1>
-        </div>
+        <div><h1>Register Successfully DONE</h1></div>
       )}
     </div>
   );
 }
-
 export default Register;
